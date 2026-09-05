@@ -1,0 +1,23 @@
+{
+  "name": "askmydocs-day7",
+  "version": "1.0.0",
+  "description": "Day 7 - Conversation history, RAG evaluation, and Vercel deployment fixes",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@langchain/classic": "^1.0.0",
+    "@langchain/community": "^0.3.24",
+    "@langchain/core": "^0.3.26",
+    "@langchain/google-genai": "^0.1.7",
+    "@langchain/textsplitters": "^0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "pdfjs-dist": "^6.3.289"
+  }
+}

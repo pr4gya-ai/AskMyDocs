@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  html {
+    color-scheme: light;
+  }
+ 
+  body {
+    @apply bg-ink text-parchment font-sans antialiased;
+  }
+ 
+  ::selection {
+    @apply bg-lamp/30 text-parchment;
+  }
+ 
+  /* Custom thin scrollbar to match the archival feel instead of default chrome */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-lighter rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-parchment-dim/40;
+  }
+ 
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+ 
+/* Styling for LLM-generated markdown answers (react-markdown output).
+   Kept separate from Tailwind's own reset so lists/bold/headings render
+   with real visual structure instead of default browser spacing. */
+.markdown-content > *:first-child {
+  margin-top: 0;
+}
+.markdown-content > *:last-child {
+  margin-bottom: 0;
+}
+ 
+.markdown-content p {
+  @apply mb-3 last:mb-0;
+}
+ 
+.markdown-content strong {
+  @apply text-lamp-dim font-semibold;
+}
+ 
+.markdown-content em {
+  @apply italic text-parchment-muted;
+}
+ 
+.markdown-content ul {
+  @apply list-disc list-outside pl-5 mb-3 space-y-1;
+}
+ 
+.markdown-content ol {
+  @apply list-decimal list-outside pl-5 mb-3 space-y-1;
+}
+ 
+.markdown-content li {
+  @apply pl-1;
+}
+ 
+.markdown-content li > p {
+  @apply mb-1;
+}
+ 
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  @apply font-display text-parchment mt-4 mb-2 first:mt-0;
+}
+.markdown-content h1 {
+  @apply text-lg;
+}
+.markdown-content h2 {
+  @apply text-base;
+}
+.markdown-content h3 {
+  @apply text-sm font-semibold;
+}
+ 
+.markdown-content code {
+  @apply font-mono text-xs bg-ink-lighter text-ledger-bright px-1.5 py-0.5 rounded;
+}
+ 
+.markdown-content pre {
+  @apply bg-ink-lighter rounded-md p-3 overflow-x-auto mb-3 text-xs;
+}
+.markdown-content pre code {
+  @apply bg-transparent p-0;
+}
+ 
+.markdown-content blockquote {
+  @apply border-l-2 border-lamp-dim pl-3 italic text-parchment-muted my-3;
+}
+ 
+.markdown-content a {
+  @apply text-ledger-bright underline underline-offset-2 hover:text-ledger-bright/80;
+}
+ 
+.markdown-content table {
+  @apply w-full text-sm mb-3 border-collapse;
+}
+.markdown-content th,
+.markdown-content td {
+  @apply border border-ink-lighter px-2 py-1 text-left;
+}
+.markdown-content th {
+  @apply bg-ink-lighter/60 font-semibold;
+}
+ 
+
+
+
+
+
+
+
+
